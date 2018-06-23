@@ -9,16 +9,16 @@ class A_SeleksiOlimpiade {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) {
-        int t = Integer.parseInt(rl());
+        int t = stoi(rl());
         for (int j = 0; j < t; j++) {
             String[] line = rl().split(" ");
-            int n = Integer.parseInt(line[0]);
-            int m = Integer.parseInt(line[1]);
+            int n = stoi(line[0]);
+            int m = stoi(line[1]);
             String targetId = rl();
             Participant[] ps = new Participant[n];
             for (int i = 0; i < n; i++) {
                 line = rl().split(" ");
-                Participant p = new Participant(line[0], Integer.parseInt(line[1]), Integer.parseInt(line[2]), Integer.parseInt(line[3]));
+                Participant p = new Participant(line[0], stoi(line[1]), stoi(line[2]), stoi(line[3]));
                 ps[i] = p;
             }
             Arrays.sort(ps);
@@ -55,15 +55,19 @@ class A_SeleksiOlimpiade {
         return "";
     }
 
-    public static String ats(Object[] arr) {
+    public static int stoi(String i) {
+        return Integer.parseInt(i);
+    }
+
+    public static String artos(Object[] arr) {
         return Arrays.toString(arr);
     }
 
-    public static String ats(int[] arr) {
+    public static String artos(int[] arr) {
         return Arrays.toString(arr);
     }
 
-    public static String ats(float[] arr) {
+    public static String artos(float[] arr) {
         return Arrays.toString(arr);
     }
 }
