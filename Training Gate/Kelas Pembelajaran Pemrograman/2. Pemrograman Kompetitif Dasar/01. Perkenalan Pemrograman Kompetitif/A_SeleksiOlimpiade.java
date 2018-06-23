@@ -9,35 +9,31 @@ class A_SeleksiOlimpiade {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) {
-        try {        
-            int t = Integer.parseInt(rl());
-            for (int j = 0; j < t; j++) {
-                String[] line = rl().split(" ");
-                int n = Integer.parseInt(line[0]);
-                int m = Integer.parseInt(line[1]);
-                String targetId = rl();
-                Participant[] ps = new Participant[n];
-                for (int i = 0; i < n; i++) {
-                    line = rl().split(" ");
-                    Participant p = new Participant(line[0], Integer.parseInt(line[1]), Integer.parseInt(line[2]), Integer.parseInt(line[3]));
-                    ps[i] = p;
-                }
-                Arrays.sort(ps);
-                boolean passed = false;
-                for (int i = 0; i < m; i++) {
-                    if (ps[i].id.compareTo(targetId) == 0) {
-                        passed = true;
-                        break;
-                    }
-                }
-                if (passed) {
-                    wl("YA");
-                } else {
-                    wl("TIDAK");
+        int t = Integer.parseInt(rl());
+        for (int j = 0; j < t; j++) {
+            String[] line = rl().split(" ");
+            int n = Integer.parseInt(line[0]);
+            int m = Integer.parseInt(line[1]);
+            String targetId = rl();
+            Participant[] ps = new Participant[n];
+            for (int i = 0; i < n; i++) {
+                line = rl().split(" ");
+                Participant p = new Participant(line[0], Integer.parseInt(line[1]), Integer.parseInt(line[2]), Integer.parseInt(line[3]));
+                ps[i] = p;
+            }
+            Arrays.sort(ps);
+            boolean passed = false;
+            for (int i = 0; i < m; i++) {
+                if (ps[i].id.compareTo(targetId) == 0) {
+                    passed = true;
+                    break;
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            if (passed) {
+                wl("YA");
+            } else {
+                wl("TIDAK");
+            }
         }
     }
 
