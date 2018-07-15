@@ -5,20 +5,17 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 class A_SeleksiOlimpiade {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
     public static void main(String[] args) {
-        int t = stoi(rl());
+        int t = U.stoi(U.rl());
         for (int j = 0; j < t; j++) {
-            String[] line = rl().split(" ");
-            int n = stoi(line[0]);
-            int m = stoi(line[1]);
-            String targetId = rl();
+            String[] line = U.rl().split(" ");
+            int n = U.stoi(line[0]);
+            int m = U.stoi(line[1]);
+            String targetId = U.rl();
             Participant[] ps = new Participant[n];
             for (int i = 0; i < n; i++) {
-                line = rl().split(" ");
-                Participant p = new Participant(line[0], stoi(line[1]), stoi(line[2]), stoi(line[3]));
+                line = U.rl().split(" ");
+                Participant p = new Participant(line[0], U.stoi(line[1]), U.stoi(line[2]), U.stoi(line[3]));
                 ps[i] = p;
             }
             Arrays.sort(ps);
@@ -30,45 +27,11 @@ class A_SeleksiOlimpiade {
                 }
             }
             if (passed) {
-                wl("YA");
+                U.wl("YA");
             } else {
-                wl("TIDAK");
+                U.wl("TIDAK");
             }
         }
-    }
-
-    public static void wl(String message) {
-        try {
-            bw.write(message + "\n");
-            bw.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static String rl() {
-        try {
-            return br.readLine();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    public static int stoi(String i) {
-        return Integer.parseInt(i);
-    }
-
-    public static String artos(Object[] arr) {
-        return Arrays.toString(arr);
-    }
-
-    public static String artos(int[] arr) {
-        return Arrays.toString(arr);
-    }
-
-    public static String artos(float[] arr) {
-        return Arrays.toString(arr);
     }
 }
 
@@ -106,5 +69,44 @@ class Participant implements Comparable<Participant> {
     public String toString() {
         return "[" + this.id + ", " + this.sesi1 + ", "
             + this.sesi2 + ", " + this.sesi3 + "]";
+    }
+}
+
+class U {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+    public static void wl(String message) {
+        try {
+            bw.write(message + "\n");
+            bw.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String rl() {
+        try {
+            return br.readLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public static int stoi(String i) {
+        return Integer.parseInt(i);
+    }
+
+    public static String artos(Object[] arr) {
+        return Arrays.toString(arr);
+    }
+
+    public static String artos(int[] arr) {
+        return Arrays.toString(arr);
+    }
+
+    public static String artos(float[] arr) {
+        return Arrays.toString(arr);
     }
 }
